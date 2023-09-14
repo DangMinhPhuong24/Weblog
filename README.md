@@ -7,14 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-- Mô tả các chức năng của website:
-    + Guest : xem bài viết
-    + User : 
-          Đăng ký, đăng nhập, quên mật khẩu, đổi mật khẩu
-          CRUD, tìm kiếm, sắp xếp bài viết
-          Ajax thích, chia sẻ, bình luận
-          Theo dõi người dùng khác
-          Thông báo bài viết mới của người dùng đã theo dõi 
-    + Admin : 
-          Thống kê : Chart
-          Quản lý bài viết, người dùng
+Mô tả các chức năng của website:
+    - Guest : xem bài viết
+    - User : 
+        + Đăng ký, đăng nhập, quên mật khẩu, đổi mật khẩu
+        + CRUD, tìm kiếm, sắp xếp bài viết
+        + Ajax thích, chia sẻ, bình luận
+        + Theo dõi người dùng khác
+        + Thông báo bài viết mới của người dùng đã theo dõi 
+    - Admin : 
+        + Thống kê : Chart
+        + Quản lý bài viết, người dùng
