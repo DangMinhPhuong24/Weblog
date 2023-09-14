@@ -6,16 +6,16 @@
         - Guest : xem bài viết
 </p>
 <p>    
-        - User : 
-            + Đăng ký, đăng nhập, quên mật khẩu, đổi mật khẩu
-            + CRUD, tìm kiếm, sắp xếp bài viết
-            + Ajax thích, chia sẻ, bình luận
-            + Theo dõi người dùng khác
-            + Thông báo bài viết mới của người dùng đã theo dõi 
+        - User : <br>
+            + Đăng ký, đăng nhập, quên mật khẩu, đổi mật khẩu <br>
+            + CRUD, tìm kiếm, sắp xếp bài viết <br>
+            + Ajax thích, chia sẻ, bình luận <br>
+            + Theo dõi người dùng khác <br>
+            + Thông báo bài viết mới của người dùng đã theo dõi <br>
 </p>
 <p>
-        - Admin : 
-            + Thống kê : Chart
+        - Admin : <br>
+            + Thống kê : Chart <br>
             + Quản lý bài viết, người dùng
 </p>
 </p>
