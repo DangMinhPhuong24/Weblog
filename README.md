@@ -18,5 +18,14 @@
             + Thống kê : Chart <br>
             + Quản lý bài viết, người dùng
 </p>
+<br>
+<p>Các file code chính: </p>
+<p>
+    app/Http/Controllers  <br>
+    app/Models            <br>
+    resources/views        <br>
+    database/migrations    <br>
+    routes/web.php        <br>    
+</p>
 </p>
 
