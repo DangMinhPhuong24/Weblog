@@ -30,8 +30,8 @@
 <br>
 <p>
     Download source code <br>
-    import database bằng file : databaseposts.sql     <br>
-    run terminal : php artisan serve và npm run dev    <br>
+    import file database: databaseposts.sql     <br>
+    run terminal: php artisan serve và npm run dev    <br>
     Server running on [http://127.0.0.1:8000].        <br>
 </p>
 </p>
