@@ -11,11 +11,12 @@
             + CRUD, tìm kiếm, sắp xếp bài viết <br>
             + Ajax thích, chia sẻ, bình luận <br>
             + Theo dõi người dùng khác <br>
-            + Thông báo bài viết mới của người dùng đã theo dõi <br>
+            + Nhận thông báo khi người dùng đã theo dõi đăng bài viết mới <br>
 </p>
 <p>
         - Admin : <br>
-            + Thống kê : Chart <br>
+            + Biểu đồ Thống kê người dùng <br>
+            + Biểu đồ Thống kê bài viết <br>
             + Quản lý bài viết, người dùng
 </p>
 </p>
