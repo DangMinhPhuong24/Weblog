@@ -19,20 +19,9 @@
             + Quản lý bài viết, người dùng
 </p>
 <br>
-<p>Các file code chính: </p>
-<p>
-    app/Http/Controllers  <br>
-    app/Models            <br>
-    resources/views        <br>
-    database/migrations    <br>
-    routes/web.php        <br>    
-</p>
-<br>
 <p>
     Download source code <br>
     import file database: databaseposts.sql     <br>
-    run terminal: php artisan serve và npm run dev    <br>
-    Server running on [http://127.0.0.1:8000].        <br>
 </p>
 </p>
 
