@@ -18,10 +18,5 @@
             + Thống kê : Chart <br>
             + Quản lý bài viết, người dùng
 </p>
-<br>
-<p>
-    Download source code <br>
-    import file database: databaseposts.sql     <br>
-</p>
 </p>
 
