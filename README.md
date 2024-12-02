@@ -3,7 +3,8 @@
 <p align="center">
     <p>wtf:</p>
 <p>
-        <a href="index.php">Website Blog</a>
+        <a href="/resources/views
+/index.blade.php">Website Blog</a>
 </p>
 <p>Mô tả các chức năng của website:</p>
 <p>    
