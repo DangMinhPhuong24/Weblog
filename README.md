@@ -8,8 +8,8 @@
 <p>    
         - User : <br>
             + Đăng ký, đăng nhập, quên mật khẩu, đổi mật khẩu <br>
-            + CRUD, tìm kiếm, sắp xếp bài viết <br>
-            + Ajax thích, chia sẻ, bình luận <br>
+            + Tạo, xem, sửa, xóa, tìm kiếm, lọc bài viết <br>
+            + Like, share, comment bài viết <br>
             + Theo dõi người dùng khác <br>
             + Nhận thông báo khi người dùng đã theo dõi đăng bài viết mới <br>
 </p>
