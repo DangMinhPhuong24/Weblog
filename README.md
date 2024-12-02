@@ -2,7 +2,7 @@
 
 <p align="center">
 <p>
-        <a href="/resources/views
+        <a href="/Weblog/resources/views
 /index.blade.php">Website Blog</a>
 </p>
 <p>Mô tả các chức năng của website:</p>
