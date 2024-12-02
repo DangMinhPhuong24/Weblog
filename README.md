@@ -2,7 +2,7 @@
 
 <p align="center">
 <p>
-        <a href="index.php">Cửa hàng thời trang</a>
+        <a href="index.php">Website Blog</a>
 </p>
 <p>Mô tả các chức năng của website:</p>
 <p>    
