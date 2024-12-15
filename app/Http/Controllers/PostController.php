@@ -20,14 +20,6 @@ class PostController extends Controller
         $posts = Post::where('status',1)
                 ->withCount(['userLikes', 'userComments'])
                 ->paginate(3); 
-        // $share = \Share::page(
-        //     url('/posts'),
-        //     $posts->name
-        // )
-        // ->facebook()
-        // ->reddit()
-        // ->telegram();
-        //$like = UserPost::where('post_id',$id)->where('user_id',Auth::user()->id)->where('type','0')->first();
         
         if(!Auth::user()){
             return view('index',[
@@ -41,38 +33,9 @@ class PostController extends Controller
             $cmt = UserPost::where('type','1')->count();
             $datefrom = request()->date_from;
             $dateto = request()->date_to;
-            // $users = User::selectRaw('MONTH(created_at) as month,COUNT(*) as count')
-            //             ->whereYear('created_at',date('Y'))
-            //             ->groupBy('month')
-            //             ->orderBy('month')
-            //             ->get();
-            // $labels2 = [];
-            // $data2 = [];
-            // $colors = ['#36A2EB','#FFCE56','#8BC34A','#FF5722','#009688','#795548','#9C27B0','#2196F3','#FF9800','#CDDC39','#607D8B'];
-            // for ($i=1; $i < 12; $i++) { 
-            //     $month = date('F',mktime(0,0,0,$i,1));
-            //     $count = 0;
-            //     foreach ($users as $item) {
-            //        if ($item->month == $i) {
-            //             $count = $item->count;
-            //             break;
-            //        }
-            //     }
-            //     array_push($labels2,$month);
-            //     array_push($data2,$count);
-            // }
-            // $datasets2 = [
-            //     [
-            //         'label' => 'Users',
-            //         'data' => $data2,
-            //         'backgroundColor' => $colors,
-            //     ],
-            // ];
             
-    
             //donut 1
             $posts1 = Post::all();
-            //$labels = ['Chưa phê duyệt','Đã phê duyệt','Đã từ chối'];
             $labels = [];
             $lb1 = '';
             $lb2 = '';
@@ -111,7 +74,6 @@ class PostController extends Controller
                 ],
             ];
 
-
             //donut 2
             $posts2 = Post::all();
             $user2 = User::all();
@@ -123,7 +85,7 @@ class PostController extends Controller
             }
             $data2 = [];
             $count_2 = 0;
-            for ($i=1; $i < $count_labels2 + 1; $i++) { //11111111111111112222222222222222333333333333333344444444444444445555555555555555
+            for ($i=1; $i < $count_labels2 + 1; $i++) {
                 foreach ($posts2 as $po) {
                     if ($po->user_id == $i) {
                         $count_2 = $count_2+1;
@@ -143,7 +105,6 @@ class PostController extends Controller
     
 
             //bar - bình luận
-            // $posts4 = Post::with('userComments')->get();
             $userposts4 = UserPost::where('type',1)->get();
             $user4 = User::where('role','US')->get();
             $labels4 = [];
@@ -171,7 +132,6 @@ class PostController extends Controller
                     'backgroundColor' => $colors4,
                 ],
             ];
-    
     
     
             //bar2 - bình luận
@@ -204,7 +164,6 @@ class PostController extends Controller
             ];
     
             //bar - thích 
-            // $posts4 = Post::with('userComments')->get();
             $userposts6 = UserPost::where('type',0)->get();
             $user6 = User::where('role','US')->get();
             $labels6 = [];
@@ -232,8 +191,6 @@ class PostController extends Controller
                     'backgroundColor' => $colors6,
                 ],
             ];
-    
-    
     
             //bar2 - thích
             $userposts7 = UserPost::where('type',0)->whereBetween('created_at', [$datefrom,$dateto])->get();
@@ -303,7 +260,6 @@ class PostController extends Controller
             return view('users.index',[
                 'posts' => $posts, 
                 'user_notitfication' => $user_notitfication,
-                // 'share' => $share, 
                 'notifications' => $notifications, 
                 'notification2' => $notification2,            
             ]);
@@ -352,7 +308,6 @@ class PostController extends Controller
             ]);
         }
         elseif (Auth::user()->role == 'US') {
-            //$posts = Post::where('user_id',Auth::user()->id)->paginate(3);
             $notifications = Notification::where('follow_id',Auth::user()->id)->orderBy('created_at','DESC')->get();
             $notification2 = Notification::where('follow_id',Auth::user()->id)->where('read',0)->count();
             $user_notitfication = Notification::where('user_id',Auth::user()->id)->first();
@@ -405,7 +360,6 @@ class PostController extends Controller
                 'user' => $user,
             ]);
         }
-        //$posts = Post::where('user_id',$id)->where('status',1)->paginate(5);
         $notifications = Notification::where('follow_id',Auth::user()->id)->orderBy('created_at','DESC')->get();
         $notification2 = Notification::where('follow_id',Auth::user()->id)->where('read',0)->count();
         $user_notitfication = Notification::where('user_id',Auth::user()->id)->first();  
@@ -484,6 +438,7 @@ class PostController extends Controller
             'content' => $request->input('content'),
             'description' => $request->input('description'),
             'image_path' => $newImageName,
+            'status' => 1
         ]);
         $post->save();
 
@@ -571,13 +526,7 @@ class PostController extends Controller
     {
         $imageName = $request->file('image')->getClientOriginalName();
         $request->image->move(public_path('images'),$imageName);
-
-        // $request -> validated([
-        //     'name' => 'required|min:0|max:1000',
-        //     'content' => 'required',
-        //     'description' => 'required',
-        //     'image' => 'required|mimes:jpg,png,jpeg'
-        // ]);
+        
         $post = Post::where('id',$id)
         ->update([
             'name' => $request->input('name'),
@@ -619,7 +568,6 @@ class PostController extends Controller
                 $sort_by = $_GET['sort_by'];
                 if ($sort_by == 'ten_az') {
                     $posts = Post::where('status',0)->orderBy('name','ASC')->paginate(5);
-                    // ->paginate(3)->appends(request()->query());
                 } elseif($sort_by == 'ten_za') {
                     $posts = Post::where('status',0)->orderBy('name','DESC')->paginate(5);
                 }
@@ -640,7 +588,7 @@ class PostController extends Controller
             return redirect('/login');
         }     
     }
-    // chi tiết bài viết phê duyệt
+  
     public function show_approve($id){
         $post = Post::find($id);
         $user = User::find($id);
@@ -657,14 +605,14 @@ class PostController extends Controller
             return redirect('/login');
         }
     }
-    // nút phê duyệt
+    
     public function accept_post($id){
         $post = Post::find($id);
         $post->status = '1';
         $post->save();
         return redirect()->back()->with('message', 'Phê duyệt thành công');
     }
-    // nút từ chối
+    
     public function reject_post($id){
         $post = Post::find($id);
         $post->status = '2';
@@ -672,7 +620,6 @@ class PostController extends Controller
         return redirect()->back()->with('message', 'Bài viết đã bị từ chối');
     }
     public function admin_post(){
-        
         if(!Auth::user()){
             return redirect('/login');
         }
@@ -726,12 +673,7 @@ class PostController extends Controller
             return redirect('/login');
         }
     }
-    // public function deleteComment(string $id){
-    //     $userpost = UserPost::where('',$id);
-    //     dd($userpost);
-    //     $userpost->delete();
-    //     return redirect()->back(); 
-    // }
+    
     public function admin_user(){  
         if(!Auth::user()){
             return redirect('/login');
